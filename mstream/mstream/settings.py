@@ -73,3 +73,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication'
     ],
 }
+MEDIA_URL = '/content/'
+MEDIA_ROOT = os.path.join(BASE_DIR,"content")

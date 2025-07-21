@@ -7,6 +7,8 @@ from app.models import (
  Reviews,
  SubscriptionModels,
  SubscriptionMapping,
+ ParentalControlTags,
+ ContentMediaFile
 )
 admin.site.register(ContentGenre)
 admin.site.register(Artist)
@@ -15,3 +17,5 @@ admin.site.register(ArtistContentRelation)
 admin.site.register(Reviews)
 admin.site.register(SubscriptionModels)
 admin.site.register(SubscriptionMapping)
+admin.site.register(ParentalControlTags)
+admin.site.register(ContentMediaFile)
