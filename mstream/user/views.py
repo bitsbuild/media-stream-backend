@@ -22,7 +22,7 @@ def create_user(request):
                 "Error":str(e)
             },status=HTTP_400_BAD_REQUEST
         )
-@api_view(['POST'])
+@api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def delete_user(request):
     try:

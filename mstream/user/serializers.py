@@ -23,7 +23,7 @@ class UserSerializer(ModelSerializer):
                     "Error":"Account Associated With This Username Already Existed"
                 }
             )
-        elif attrs['password'] == attrs['confirm_password']:
+        elif attrs['password'] != attrs['confirm_password']:
             raise ValidationError(
                 {
                     "Error":"Passwords Do Not Match"
