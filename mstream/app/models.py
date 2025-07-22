@@ -7,6 +7,11 @@ class ContentGenre(models.Model):
     name = models.CharField(max_length=70,blank=False,unique=True)
     created = models.DateTimeField(auto_now_add=True,editable=False,blank=False)
     updated = models.DateField(auto_now=True,editable=False,blank=False)
+class ContentType(models.Model):
+    id = models.UUIDField(primary_key=True,editable=False,default=u4,blank=False,unique=True)
+    type = models.CharField(max_length=70,blank=False,unique=True)
+    created = models.DateTimeField(auto_now_add=True,editable=False,blank=False)
+    updated = models.DateField(auto_now=True,editable=False,blank=False)
 class ParentalControlTags(models.Model):
     id = models.UUIDField(primary_key=True,editable=False,default=u4,blank=False,unique=True)
     name = models.CharField(max_length=70,blank=False,unique=True)
@@ -25,6 +30,7 @@ class Content(models.Model):
     parental_control_tags = models.ManyToManyField(ParentalControlTags,related_name='content',blank=False)
     genre = models.ManyToManyField(ContentGenre,related_name='content',blank=False)
     cast = models.ManyToManyField(Artist,related_name='content',blank=False)
+    type = models.ForeignKey(ContentType,related_name='content',blank=False,on_delete=models.CASCADE)
     rating = models.FloatField(default=0,editable=False,blank=False)
     created = models.DateTimeField(auto_now_add=True,editable=False,blank=False)
     updated = models.DateField(auto_now=True,editable=False,blank=False)
