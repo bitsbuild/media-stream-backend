@@ -8,7 +8,8 @@ from app.models import (
  SubscriptionModels,
  SubscriptionMapping,
  ParentalControlTags,
- ContentMediaFile
+ ContentMediaFile,
+ ContentType
 )
 admin.site.register(ContentGenre)
 admin.site.register(Artist)
@@ -19,3 +20,4 @@ admin.site.register(SubscriptionModels)
 admin.site.register(SubscriptionMapping)
 admin.site.register(ParentalControlTags)
 admin.site.register(ContentMediaFile)
+admin.site.register(ContentType)
