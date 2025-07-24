@@ -16,7 +16,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'user',
-    'app'
+    'app',
+    'django_filters'
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,6 +80,11 @@ REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATE':{
         'user':'60/min'
     },
+    'DEFAULT_FILTER_BACKENDS':[
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter'
+    ],
     'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE':20
 }
