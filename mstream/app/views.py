@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
+from statistics import mean
 from rest_framework.status import HTTP_200_OK,HTTP_400_BAD_REQUEST
 from app.models import (
     ContentGenre,
@@ -45,6 +46,12 @@ class ReviewsViewSet(ModelViewSet):
             serialzer = self.get_serializer(data=request.data)
             serialzer.is_valid(raise_exception=True)
             self.perform_create(serialzer)
+            reviewed_content = request.data['content']
+            revs = list(Reviews.objects.filter(content=reviewed_content).values_list('rating',flat=True))
+            rating = mean(revs)
+            content_object = Content.objects.get(pk=reviewed_content)
+            content_object.rating = rating
+            content_object.save()
             return Response({
                 "Status":"Review Creation Successfull"
             },status=HTTP_200_OK)
