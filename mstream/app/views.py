@@ -1,4 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.response import Response
+from rest_framework.status import HTTP_200_OK,HTTP_400_BAD_REQUEST
 from app.models import (
     ContentGenre,
     Artist,
@@ -38,6 +40,19 @@ class ArtistContentRelationViewSet(ModelViewSet):
 class ReviewsViewSet(ModelViewSet):
     queryset = Reviews.objects.all()
     serializer_class = ReviewsSerializer
+    def create(self, request, *args, **kwargs):
+        try:
+            serialzer = self.get_serializer(data=request.data)
+            serialzer.is_valid(raise_exception=True)
+            self.perform_create(serialzer)
+            return Response({
+                "Status":"Review Creation Successfull"
+            },status=HTTP_200_OK)
+        except Exception as e:
+            return Response({
+                "Status":"Error",
+                "Error":str(e)
+            },status=HTTP_400_BAD_REQUEST)
 class SubscriptionModelsViewSet(ModelViewSet):
     queryset = SubscriptionModels.objects.all()
     serializer_class = SubscriptionModelsSerializer
