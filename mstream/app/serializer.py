@@ -45,9 +45,13 @@ class ArtistSerializer(serializers.ModelSerializer):
 class ReviewsSerializer(serializers.ModelSerializer):
     content = serializers.PrimaryKeyRelatedField(queryset=Content.objects.all(),write_only=True)
     content_name = serializers.StringRelatedField(source='content',read_only=True)
+    user = serializers.PrimaryKeyRelatedField(read_only=True)
     class Meta:
         model = Reviews
         fields = '__all__'
+    def create(self, validated_data):
+        validated_data['user'] = self.context['request'].user
+        return super().create(validated_data)
 class SubscriptionModelsSerializer(serializers.ModelSerializer):
     class Meta:
         model = SubscriptionModels
