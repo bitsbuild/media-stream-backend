@@ -35,7 +35,7 @@ class ContentGenreViewSet(ModelViewSet):
     throttle_classes = [UserRateThrottle]
     permission_classes = [IsAdminUser]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = []
+    filterset_fields = ['id', 'name', 'created', 'updated']
     search_fields = filterset_fields
     ordering_fields = filterset_fields
 class ArtistViewSet(ModelViewSet):
@@ -44,7 +44,7 @@ class ArtistViewSet(ModelViewSet):
     throttle_classes = [UserRateThrottle]
     permission_classes = [IsAdminUser]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = []
+    filterset_fields = ['id', 'name', 'about', 'created', 'updated']
     search_fields = filterset_fields
     ordering_fields = filterset_fields
 class ContentViewSet(ModelViewSet):
@@ -53,7 +53,7 @@ class ContentViewSet(ModelViewSet):
     throttle_classes = [UserRateThrottle]
     permission_classes = [IsAdminUser]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = []
+    filterset_fields = ['id', 'name', 'about', 'parental_control_tags', 'genre', 'cast', 'type', 'rating', 'created', 'updated']
     search_fields = filterset_fields
     ordering_fields = filterset_fields
 class ArtistContentRelationViewSet(ModelViewSet):
@@ -62,7 +62,7 @@ class ArtistContentRelationViewSet(ModelViewSet):
     throttle_classes = [UserRateThrottle]
     permission_classes = [IsAdminUser]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = []
+    filterset_fields = ['id', 'artist', 'content', 'relation', 'created', 'updated']
     search_fields = filterset_fields
     ordering_fields = filterset_fields
 class ReviewsViewSet(ModelViewSet):
@@ -71,7 +71,7 @@ class ReviewsViewSet(ModelViewSet):
     throttle_classes = [UserRateThrottle]
     permission_classes = [IsAuthenticated]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = []
+    filterset_fields = ['id', 'user', 'content', 'title', 'review', 'rating', 'created', 'updated']
     search_fields = filterset_fields
     ordering_fields = filterset_fields
     def create(self, request, *args, **kwargs):
@@ -99,7 +99,7 @@ class SubscriptionModelsViewSet(ModelViewSet):
     throttle_classes = [UserRateThrottle]
     permission_classes = [IsAdminUser]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = []
+    filterset_fields = ['id', 'name', 'created', 'updated']
     search_fields = filterset_fields
     ordering_fields = filterset_fields
 class SubscriptionMappingViewSet(ModelViewSet):
@@ -108,7 +108,7 @@ class SubscriptionMappingViewSet(ModelViewSet):
     throttle_classes = [UserRateThrottle]
     permission_classes = [IsAdminUser]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = []
+    filterset_fields = ['id', 'user', 'plan', 'created', 'updated']
     search_fields = filterset_fields
     ordering_fields = filterset_fields
 class ParentalControlTagsViewSet(ModelViewSet):
@@ -117,7 +117,7 @@ class ParentalControlTagsViewSet(ModelViewSet):
     throttle_classes = [UserRateThrottle]
     permission_classes = [IsAdminUser]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = []
+    filterset_fields = ['id', 'name', 'created', 'updated']
     search_fields = filterset_fields
     ordering_fields = filterset_fields
 class ContentMediaFileViewSet(ModelViewSet):
@@ -126,7 +126,7 @@ class ContentMediaFileViewSet(ModelViewSet):
     throttle_classes = [UserRateThrottle]
     permission_classes = [IsAdminUser]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = []
+    filterset_fields = ['id', 'name', 'content', 'created', 'updated']
     search_fields = filterset_fields
     ordering_fields = filterset_fields
 class ContentTypeViewSet(ModelViewSet):
@@ -135,6 +135,6 @@ class ContentTypeViewSet(ModelViewSet):
     throttle_classes = [UserRateThrottle]
     permission_classes = [IsAdminUser]
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = []
+    filterset_fields = ['id', 'type', 'created', 'updated']
     search_fields = filterset_fields
     ordering_fields = filterset_fields
