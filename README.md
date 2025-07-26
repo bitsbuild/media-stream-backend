@@ -4,6 +4,16 @@ This is a Django REST Framework-based backend service for a media streaming appl
 
 ---
 
+## 🌐 Hosted API
+
+The live version of this backend is available here:
+
+**🔗 https://mstream-dg6r.onrender.com/**
+
+You can test all endpoints from the base URL above. Make sure to use the correct `Authorization` header (see [🔐 Authentication](#-authentication)).
+
+---
+
 ## 📁 Repository Structure
 
 ```
@@ -240,4 +250,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## 💬 Feedback
 
-Have suggestions or issues? Feel free to open an issue or reach out!
+Have suggestions or issues? Feel free to [open an issue](https://github.com/bitsbuild/media-stream-backend/issues) or reach out!
