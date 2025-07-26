@@ -1,9 +1,3 @@
-
-Here's a comprehensive and well-structured `README.md` for your **Media Stream Backend** project inside the `mstream` folder. This version assumes the project is a RESTful backend for a media streaming platform with features like content management, user auth, reviews, subscriptions, and file handling via media uploads.
-
----
-
-```markdown
 # 🎬 Media Stream Backend
 
 This is a Django REST Framework-based backend service for a media streaming application. It offers full-fledged APIs for managing multimedia content, user reviews, artists, content categorization, and subscription plans. It also supports file uploads, filtering, search, ordering, and authentication.
